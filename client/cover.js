@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 FlowRouter.template('/', 'cover');
 
 Template.cover.onRendered(function() {
@@ -14,3 +15,6 @@ Template.cover.helpers({
         }
     }
 });
+=======
+FlowRouter.template('/cover', 'cover');
+>>>>>>> 20201230

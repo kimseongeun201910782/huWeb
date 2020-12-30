@@ -1,0 +1,21 @@
+<template name="noise_reduction">
+    {{> ex_navbar}}
+    <div id="noise_reduction">
+        <section class="jumbotron text-center" stlye="background-color: gray;">
+            <div class="container">
+                <!-- 페이지 안내 문구 -->
+                <h1>화질변환 할 이미지 선택</h1>
+                <p>
+                <div class="lead text-muted">이 파일을 끌어다 놓거나 장치에서 파일을 선택하십시오.</div>
+                </p>
+                <!-- 파일 업로드 구현 -->
+                {{> uploadbox}}
+                <BR><BR><BR><BR>
+                <!-- 업로드 파일 데이터 보내기 -->
+                <p>
+                    <a id="btn-save" href="#" class="btn btn-primary">화질변환 하기</a>
+                </p>
+            </div>
+        </section>
+    </div>
+</template>

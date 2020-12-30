@@ -1,0 +1,39 @@
+<template name="mosaic">
+    {{> ex_navbar}}
+    <div id="mosaic">
+        <section class="jumbotron text-center" stlye="background-color: gray;">
+            <div class="container">
+                <!-- 페이지 안내 문구 -->
+                <h1>모자이크 할 이미지 선택</h1>
+                <p>
+                <div class="lead text-muted">이 파일을 끌어다 놓거나 장치에서 파일을 선택하십시오.</div>
+                </p>
+                <!-- 파일 업로드 구현 -->
+                {{> uploadbox}}
+                <BR><BR><BR><BR>
+                <!-- 업로드 파일 데이터 보내기 -->
+                <p>
+                    <a id="btn-save" href="#" class="btn btn-primary">모자이크 하기</a>
+                </p>
+            </div>
+        </section>
+
+    </div>
+</template>
+<template name="uploadbox">
+    <style>
+        #center {
+            text-align: center;
+            position: absolute;
+            top: 35%; left: 45%;
+            width: 300px; height: 160px;
+        }
+    </style>
+    <div id="uploadbox">
+        <div id="center">
+            <div class="input-group mb-3" >
+                <input type="file" id="inp-file"/>
+            </div>
+        </div>
+    </div>
+</template>
