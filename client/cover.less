@@ -1,0 +1,94 @@
+#cover {
+  // 필요 시 현재 화면의 CSS 구성 요소들을 정의
+  html{
+    background-image:image(my image);
+    position:relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+
+  }
+
+  .container{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .background-cover{
+    display: flex;
+    position: absolute;
+    width:100%;
+    height: 60rem;
+    background: rgb(76,76,76);
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .main-text{
+    display:flex;
+    box-sizing:border-box;
+    text-align: center;
+    justify-content: center;
+  }
+
+  h1{
+    box-sizing:border-box;
+    position: absolute;
+    display:flex;
+    margin-top: 15rem;
+    color:#ffffff;
+    z-index: 1;
+  }
+
+  h4{
+    box-sizing:border-box;
+    position: absolute;
+    display:flex;
+    margin-top: 18.5rem;
+    color:#ffffff;
+    font-family: '12롯데마트드림Medium';
+    z-index: 1;
+  }
+
+  h1 .a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+  }
+
+    .btn {
+      display: flex;
+      margin-top: 5.2rem;
+      font-weight: 400;
+      color: #212529;
+      text-align: center;
+      vertical-align: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: transparent;
+      border: 1px solid transparent;
+      padding: 0.6rem 2rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: .25rem;
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+
+  .btn-outline-primary {
+    color: #ffffff;
+    border-color: #ffffff;
+
+  }
+
+  .intro-text{
+    box-sizing:border-box;
+    position: absolute;
+    display: flex;
+    color: #ffffff;
+    margin-top:27rem;
+    font-weight:700;
+    z-index:1;
+  }
+}
