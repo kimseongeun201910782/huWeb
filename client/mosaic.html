@@ -1,38 +1,59 @@
 <template name="mosaic">
     {{> ex_navbar}}
     <div id="mosaic">
-        <section class="jumbotron text-center" stlye="background-color: gray;">
+        <section class="jumbotron text-center">
             <div class="container">
-                <!-- 페이지 안내 문구 -->
                 <h1>모자이크 할 이미지 선택</h1>
                 <p>
-                <div class="lead text-muted">이 파일을 끌어다 놓거나 장치에서 파일을 선택하십시오.</div>
+                <div class="lead text-muted">장치에서 모자이크할 이미지 파일을 선택하세요.</div>
                 </p>
-                <!-- 파일 업로드 구현 -->
-                {{> uploadbox}}
-                <BR><BR><BR><BR>
-                <!-- 업로드 파일 데이터 보내기 -->
+                <div id="file_upload" style="width : 50%; float: left; text-align: center;">
+                    <form class = "box" style="align-content: center;">
+                        <div class="container">
+                            <!-- 사진 미리보기 부분 (비어있는 부분 만들어줬기 때문에 그 자리에 사진 미리보기가 들어가는 것임) -->
+                            <div id = "preview">
+
+                            </div>
+                            <p>
+                            <div class="input-group mb-3">
+                                <input type="file" id="inp-file"/>
+                            </div>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <div class="input-group mb-3">
+                    <textarea id="ta-article" rows="5" type="text" class="form-control" placeholder="이미지와 함께 저장할 내용을 적어주세요."></textarea>
+                </div>
                 <p>
-                    <a id="btn-save" href="#" class="btn btn-primary">모자이크 하기</a>
+                    <a id="btn-mosaic" href="/mosaic_" class="btn btn-primary">모자이크 하기</a>
+                    <a href="/main" class="btn btn-secondary">이전으로</a>
                 </p>
             </div>
         </section>
 
-    </div>
-</template>
-<template name="uploadbox">
-    <style>
-        #center {
-            text-align: center;
-            position: absolute;
-            top: 35%; left: 45%;
-            width: 300px; height: 160px;
-        }
-    </style>
-    <div id="uploadbox">
-        <div id="center">
-            <div class="input-group mb-3" >
-                <input type="file" id="inp-file"/>
+        <div class="container">
+            <h2 class="font-italic">History</h2>
+            <div class="lead text-muted border-bottom">이전에 모자이크 처리했던 이미지들을 관리합니다.</div>
+            <br>
+            <div class="row">
+                <!--    DB를 파라미터로 전달 받는 반복문     -->
+                {{#each contents}}
+                <div class="col-md-4">
+                    <div class="mb-4 shadow-sm">
+                        <img src="{{link}}" alt="" class="card-img-top">
+                        <button id="btn-remove" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="card-body">
+                            <p class="card-text">{{{content}}}</p>  <!-- {{{...}}} 형식은 해당 값을 html 구문을 적용하여 화면에 표시합니다. -->
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">{{createdAt}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
             </div>
         </div>
     </div>
