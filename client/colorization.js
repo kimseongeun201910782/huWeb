@@ -1,4 +1,4 @@
-FlowRouter.template('/colorization', 'moscolorizationaic');
+FlowRouter.template('/colorization', 'colorization');
 
 Template.colorization.onRendered(function() {
     // tag_arr을 빈 String 으로 만들어주기
@@ -25,6 +25,11 @@ Template.colorization.onRendered(function() {
         if(get_file){
             reader.readAsDataURL(get_file[0]);
         }
+        image.style.width = '400px';
+        image.style.height = 'auto';
+        image.style.display = 'block';
+        image.style.margin = 'auto';
+
         preview.appendChild(image);
     })
 });

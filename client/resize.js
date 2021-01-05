@@ -25,6 +25,11 @@ Template.resize.onRendered(function() {
         if(get_file){
             reader.readAsDataURL(get_file[0]);
         }
+        image.style.width = '400px';
+        image.style.height = 'auto';
+        image.style.display = 'block';
+        image.style.margin = 'auto';
+
         preview.appendChild(image);
     })
 });
