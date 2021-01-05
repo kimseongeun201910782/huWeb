@@ -1,10 +1,35 @@
-FlowRouter.template('/noise_reduction_', 'noise_reduction_');
+FlowRouter.template('/cartoonfilter', 'cartoonfilter');
 
-Template.noise_reduction_.onRendered(function() {
+Template.cartoonfilter.onRendered(function() {
+    // tag_arr을 빈 String 으로 만들어주기
+    Session.set('tag_arr', []);
 
+    var upload = document.querySelector('#inp-file');
+    var upload2 = document.querySelector('#preview');
+
+    /* FileReader 객체 생성 */
+    var reader = new FileReader();
+
+    /* reader 시작시 함수 구현 */
+    reader.onload = (function () {
+        this.image = document.createElement('img');
+        var vm = this;
+        return function (e) {
+            /* base64 인코딩 된 스트링 데이터 */
+            vm.image.src = e.target.result
+        }
+    })()
+
+    upload.addEventListener('change',function (e) {
+        var get_file = e.target.files;
+        if(get_file){
+            reader.readAsDataURL(get_file[0]);
+        }
+        preview.appendChild(image);
+    })
 });
 
-Template.noise_reduction_.helpers({
+Template.cartoonfilter.helpers({
     contents: function() {
         // CONTENTS 데이터베이스를 화면에 전달
         return DB_UPLOAD.findAll();
@@ -15,12 +40,12 @@ Template.noise_reduction_.helpers({
     },
     link: function() {
         // 저장 된 이미지 링크를 반환
-        return DB_PIC.findOne({_id: this.file_id}).link();
+        return DB_FILES.findOne({_id: this.file_id}).link();
     }
 });
 
-Template.noise_reduction_.events({
-    'click #btn-mosaic': function(evt, inst) {
+Template.cartoonfilter.events({
+    'click #btn-cartoonfilter': function(evt, inst) {
         // 파일 먼저 저장
         var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
         var file_id = DB_FILES.insertFile(file);

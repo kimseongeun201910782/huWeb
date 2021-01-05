@@ -1,6 +1,6 @@
-FlowRouter.template('/noise_reduction', 'noise_reduction');
+FlowRouter.template('/colorization', 'moscolorizationaic');
 
-Template.noise_reduction.onRendered(function() {
+Template.colorization.onRendered(function() {
     // tag_arr을 빈 String 으로 만들어주기
     Session.set('tag_arr', []);
 
@@ -29,7 +29,7 @@ Template.noise_reduction.onRendered(function() {
     })
 });
 
-Template.noise_reduction.helpers({
+Template.colorization.helpers({
     contents: function() {
         // CONTENTS 데이터베이스를 화면에 전달
         return DB_UPLOAD.findAll();
@@ -44,8 +44,8 @@ Template.noise_reduction.helpers({
     }
 });
 
-Template.noise_reduction.events({
-    'click #btn-mosaic': function(evt, inst) {
+Template.colorization.events({
+    'click #btn-colorization': function(evt, inst) {
         // 파일 먼저 저장
         var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
         var file_id = DB_FILES.insertFile(file);
