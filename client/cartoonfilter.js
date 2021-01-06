@@ -51,19 +51,27 @@ Template.cartoonfilter.helpers({
 
 Template.cartoonfilter.events({
     'click #btn-cartoonfilter': function(evt, inst) {
-        // 파일 먼저 저장
-        var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
-        var file_id = DB_FILES.insertFile(file);
-        // DB 저장 시 파일의 _id와 name을 함께 저장
-        DB_UPLOAD.insert({    // 컨텐츠 DB에 저장
-            createdAt: new Date(),          // 저장 시각
-            content: $('#ta-article').val(),// 저장 컨텐츠
-            file_id: file_id                // 저장 된 파일의 _id
-        });
-        // 저장 후 화면 정리
-        $('#inp-file').val('');
-        $('#ta-article').val('');
-        //alert('저장 되었습니다.');
+        var chk = document.getElementById('inp-file');
+        if(!chk.value){
+            $('#btn-cartoonfilter').attr('href','');
+            alert('이미지 파일을 먼저 업로드 해주세요.');
+        }
+        else {
+            // 파일 먼저 저장
+            var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
+            var file_id = DB_FILES.insertFile(file);
+            // DB 저장 시 파일의 _id와 name을 함께 저장
+            DB_UPLOAD.insert({    // 컨텐츠 DB에 저장
+                createdAt: new Date(),          // 저장 시각
+                content: $('#ta-article').val(),// 저장 컨텐츠
+                file_id: file_id                // 저장 된 파일의 _id
+            });
+            // 저장 후 화면 정리
+            $('#inp-file').val('');
+            $('#ta-article').val('');
+            $('#btn-cartoonfilter').attr('href','cartoonfilter_');
+            //alert('저장 되었습니다.');
+        }
     },
     'click #btn-remove': function() {
         if(confirm('삭제 하시겠습니까?')) {
