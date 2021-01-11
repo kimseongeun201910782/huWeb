@@ -1,2 +1,4 @@
-// DB = new Mongo.Collection('db');   //데이터베이스 객체 생성 예제
-DB_PIC = new Mongo.Collection('picture');
+DB_MOSAIC = new Mongo.Collection('mosaic');     // 모자이크 DB
+DB_CARTOONFILTER = new Mongo.Collection('cartoonfilter');   // 만화필터 DB
+DB_COLORIZATION = new Mongo.Collection('colorization');     // 색상변경 DB
+DB_RESIZE = new Mongo.Collection('resize');     // 크기변경 DB
