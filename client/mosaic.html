@@ -10,7 +10,6 @@
                 <div id="file_upload" style="width : 100%; float: left; text-align: center;">
                     <form class = "box" style="align-content: center;">
                         <div class="container">
-                            <!-- 사진 미리보기 부분 (비어있는 부분 만들어줬기 때문에 그 자리에 사진 미리보기가 들어가는 것임) -->
                             <div id = "preview">
 
                             </div>
@@ -31,6 +30,15 @@
                 </p>
             </div>
         </section>
+
+        <!-- 모달창 -->
+        <div id="myModal" class="modal">
+            <div class="modal-content" style="text-align: center;">
+                <span class="close" id="myclose" style="width: 20px; margin-left: 90%;">&times;</span>
+                <img src="{{modal_img}}" width="210px" height="210px" alt="" style="max-width: 100%; height: auto; display: block;">
+                <button id="btn-charge" class="btn btn-primary" style="width:80%; margin-left: 10%;margin-right: 0.27rem;margin-top: 1rem;background-color: grey;border-color: transparent;color: white;">저장하기</button>
+            </div>
+        </div>
 
         <div class="container">
             <h2 class="font-italic">History</h2>
