@@ -1,11 +1,8 @@
 FlowRouter.template('/mosaic', 'mosaic');
 
-Template.mosaic.onCreated(function() {
-    var _id = FlowRouter.getParam('_id')
-});
-
 Template.mosaic.onRendered(function() {
-    Session.set('picture_link', '');
+    // tag_arr을 빈 String 으로 만들어주기
+    Session.set('tag_arr', []);
 
     var upload = document.querySelector('#inp-file');
     var upload2 = document.querySelector('#preview');
@@ -49,21 +46,14 @@ Template.mosaic.helpers({
     link: function() {
         // 저장 된 이미지 링크를 반환
         return DB_FILES.findOne({_id: this.mosaic_id}).link();
-    },
-    board: function() {
-        var _id = FlowRouter.getParam('_id')
-        return DB_MOSAIC.findOne({_id: _id});
-    },
-    modal_img: function () {
-        return DB_MOSAIC.findOne({id: this.mosaic_id}).modal_img();
     }
 });
 
 Template.mosaic.events({
     'click #btn-mosaic': function(evt, inst,e) {
-
         var chk = document.getElementById('inp-file');
         if(!chk.value){
+            $('#btn-mosaic').attr('href','');
             alert('이미지 파일을 먼저 업로드 해주세요.');
         }
         else {
@@ -76,27 +66,13 @@ Template.mosaic.events({
                 content: $('#ta-article').val(),// 저장 컨텐츠
                 mosaic_id: mosaic_id               // 저장된 mosaic 파일의 _id
             });
-
-            Session.set('picture_link', $(evt.target).parent().attr('value'));
-
-            var modal = document.getElementById('myModal');
-            var btn = document.getElementById("mybtn");
-            modal.style.display = "block";
-
             // 저장 후 화면 정리
             $('#inp-file').val('');
             $('#ta-article').val('');
-            $('#preview').val('');
+            $('#btn-mosaic').attr('href','mosaic_');
             //alert('저장 되었습니다.');
         }
     },
-
-    'click #myclose': function() {
-        var modal = document.getElementById('myModal');
-        var span = document.getElementsByClassName("myclose")[0];
-        modal.style.display = "none";
-    },
-
     'click #btn-remove': function() {
         if(confirm('삭제 하시겠습니까?')) {
             DB_MOSAIC.remove({_id: this._id});  // 선택 컨텐츠를 DB에서 삭제
