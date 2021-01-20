@@ -1,13 +1,13 @@
 <template name="mosaic_">
     {{> ex_navbar}}
-    {{#with board}}
     <div id="mosaic_">
         <h1>모자이크 처리된 이미지가 나타남</h1>
-        <img src="{{link}}" width="210px" height="210px" alt="..." style="max-width: 100%; height: auto; display: block;">
+        <div id = "c" style="width : 100%; align-content: center;">
+            <canvas id="canvas" style="width:400px; display :block; margin : auto"></canvas>
+        </div>
         <p>
-        <a id="btn-save-mosaic" href="#" class="btn btn-primary">저장하기</a>
-        <a href="/mosaic" class="btn btn-secondary">이전으로</a>
+            <a id="btn-save-mosaic" href="#" class="btn btn-primary">저장하기</a>
+            <a href="/mosaic" class="btn btn-secondary">이전으로</a>
         </p>
     </div>
-    {{/with}}
 </template>
