@@ -55,4 +55,13 @@ Template.gray_.onRendered(function() {
     //preview.appendChild(filteredData);
 
     //preview.appendChild(image);  (<업데이트할 데이터선택>,<데이터를 입력>)
+
+    $("#save").click(function(){
+        downloadCanvas(this, 'canvas', 'huWeb_img_gray.png');
+    });
+    // 작업 이미지 로컬 다운로드(.PNG)
+    function downloadCanvas(link, canvasId, filename) {
+        link.href = document.getElementById(canvasId).toDataURL();
+        link.download = filename;
+    }
 });
