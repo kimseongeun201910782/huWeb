@@ -1,8 +1,10 @@
 <template name="colorization_">
     {{> ex_navbar}}
     <div id="colorization_">
-        <h1>색상변경 처리된 이미지가 나타남</h1>
-        <img src="" alt="" class="card-img-top">
+        <h1>밝게 처리된 이미지가 나타남</h1>
+        <div id = "c" style="width : 100%; align-content: center;">
+            <canvas id="canvas" style="width:400px; display :block; margin : auto"></canvas>
+        </div>
         <p>
             <a id="btn-save-colorization" href="#" class="btn btn-primary">저장하기</a>
             <a href="/colorization" class="btn btn-secondary">이전으로</a>
