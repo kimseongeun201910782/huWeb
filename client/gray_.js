@@ -1,6 +1,6 @@
-FlowRouter.template('/cartoonfilter_', 'cartoonfilter_');
+FlowRouter.template('/gray_', 'gray_');
 
-Template.cartoonfilter_.onRendered(function() {
+Template.gray_.onRendered(function() {
     //preview.appendChild(image);
 
 

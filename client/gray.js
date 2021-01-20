@@ -1,8 +1,6 @@
-FlowRouter.template('/cartoonfilter', 'cartoonfilter');
+FlowRouter.template('/gray', 'gray');
 
-Template.cartoonfilter.onRendered(function() {
-    // tag_arr을 빈 String 으로 만들어주기
-    Session.set('tag_arr', []);
+Template.gray.onRendered(function() {
 
     var upload = document.querySelector('#inp-file');
     var upload2 = document.querySelector('#preview');
@@ -34,10 +32,10 @@ Template.cartoonfilter.onRendered(function() {
     })
 });
 
-Template.cartoonfilter.helpers({
+Template.gray.helpers({
     contents: function() {
         // CONTENTS 데이터베이스를 화면에 전달
-        return DB_CARTOONFILTER.findAll();
+        return DB_GRAY.findAll();
     },
     createdAt: function() {
         // 화면에 보이는 날짜 데이터를 정해진 포맷으로 변환하여 전달
@@ -45,37 +43,37 @@ Template.cartoonfilter.helpers({
     },
     link: function() {
         // 저장 된 이미지 링크를 반환
-        return DB_FILES.findOne({_id: this.cartoonfilter_id}).link();
+        return DB_FILES.findOne({_id: this.gray_id}).link();
     }
 });
 
-Template.cartoonfilter.events({
-    'click #btn-cartoonfilter': function(evt, inst) {
+Template.gray.events({
+    'click #btn-gray': function(evt, inst) {
         var chk = document.getElementById('inp-file');
         if(!chk.value){
-            $('#btn-cartoonfilter').attr('href','');
+            $('#btn-gray').attr('href','');
             alert('이미지 파일을 먼저 업로드 해주세요.');
         }
         else {
             // 파일 먼저 저장
             var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
-            var cartoonfilter_id = DB_FILES.insertFile(file);
+            var gray_id = DB_FILES.insertFile(file);
             // DB 저장 시 파일의 _id와 name을 함께 저장
-            DB_CARTOONFILTER.insert({    // 컨텐츠 DB에 저장
+            DB_GRAY.insert({    // 컨텐츠 DB에 저장
                 createdAt: new Date(),          // 저장 시각
                 content: $('#ta-article').val(),// 저장 컨텐츠
-                cartoonfilter_id: cartoonfilter_id                // 저장된 cartoonfilter 파일의 _id
+                gray_id: gray_id                // 저장된 cartoonfilter 파일의 _id
             });
             // 저장 후 화면 정리
             $('#inp-file').val('');
             $('#ta-article').val('');
-            $('#btn-cartoonfilter').attr('href','cartoonfilter_');
+            $('#btn-gray').attr('href','gray_');
             //alert('저장 되었습니다.');
         }
     },
     'click #btn-remove': function() {
         if(confirm('삭제 하시겠습니까?')) {
-            DB_CARTOONFILTER.remove({_id: this._id});  // 선택 컨텐츠를 DB에서 삭제
+            DB_GRAY.remove({_id: this._id});  // 선택 컨텐츠를 DB에서 삭제
             alert('삭제 되었습니다.');
         }
     }
