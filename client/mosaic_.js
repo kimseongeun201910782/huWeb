@@ -88,12 +88,19 @@ Template.mosaic_.onRendered(function() {
 
 
     let canvas = $('#canvas')[0];
+    //$("canvas").attr("width", image.width).attr("height", image.height);
     let ctx = canvas.getContext('2d');
 
-    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-    console.log(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    var scale1=Math.min((canvas.width/image.width),(canvas.height/image.height));
+    var sw1=image.width*scale1;
+    var sh1=image.height*scale1;
+    ctx.drawImage(image,(canvas.width-sw1)/2,(canvas.height-sh1)/2,sw1,sh1);
 
-    let pixels = ctx.getImageData(0,0, canvas.width, canvas.height);
+
+    // ctx.drawImage(image, 0, 0, image.width, image.height);
+    console.log(ctx.getImageData(0, 0, image.width, image.height));
+
+    let pixels = ctx.getImageData(0,0, image.width, image.height);
     let filteredData=mosaic(ctx, pixels);
     ctx.putImageData(filteredData, 0 , 0);
     //ctx.drawImage(filteredData, 0, 0, canvas.width, canvas.height);
