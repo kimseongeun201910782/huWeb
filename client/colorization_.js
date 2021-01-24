@@ -52,7 +52,11 @@ Template.colorization_.onRendered(function() {
 // Canvas에 다시 그린다.
     ctx.putImageData(filteredData, 0 , 0);
 
+<<<<<<< HEAD
    //ctx.drawImage(filteredData, 0, 0, canvas.width, canvas.height);
+=======
+    //ctx.drawImage(filteredData, 0, 0, canvas.width, canvas.height);
+>>>>>>> c1779419f8db014f597d743156a8f73e8f08d948
 
     //preview.appendChild(filteredData);
 
