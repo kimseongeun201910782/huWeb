@@ -49,6 +49,7 @@ Template.resize_.onRendered(function() {
 
     let canvas = $('#canvas')[0];
     let ctx = canvas.getContext('2d');
+    $("canvas").attr("width", image.width).attr("height", image.height);
 
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
     console.log(ctx.getImageData(0, 0, canvas.width, canvas.height));
