@@ -98,4 +98,14 @@ Template.mosaic_.onRendered(function() {
     let filteredData=mosaic(ctx, pixels);
     ctx.putImageData(filteredData, 0 , 0);
 
+
+    // 작업 이미지 로컬 다운로드(.PNG)
+    $("#save").click(function(){
+        downloadCanvas(this, 'canvas', 'huWeb_img_mosaic.png');
+    });
+
+    function downloadCanvas(link, canvasId, filename) {
+        link.href = document.getElementById(canvasId).toDataURL();
+        link.download = filename;
+    }
 });

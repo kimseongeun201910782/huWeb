@@ -2,7 +2,6 @@ FlowRouter.template('/colorization_', 'colorization_');
 
 Template.colorization_.onRendered(function() {
 
-
     // Filters
     function brightnessFilter(pixels, value) {
         var d = pixels.data;
@@ -13,8 +12,6 @@ Template.colorization_.onRendered(function() {
         }
         return pixels;
     }
-
-
 
     function drawImageData(image) {
         image.height *= canvas.offsetWidth / image.width;
@@ -37,12 +34,6 @@ Template.colorization_.onRendered(function() {
     console.log(ctx.getImageData(0, 0, canvas.width, canvas.height));
 
 
-    //var file = image.target.files[0];
-    //var fileReader = new FileReader();
-
-
-    //fileReader.readAsDataURL(file);
-
     // imageData를 가져온다.
     var pixels = ctx.getImageData(0,0, canvas.width, canvas.height);
 
@@ -52,20 +43,22 @@ Template.colorization_.onRendered(function() {
 // Canvas에 다시 그린다.
     ctx.putImageData(filteredData, 0 , 0);
 
+<<<<<<< HEAD
    //ctx.drawImage(filteredData, 0, 0, canvas.width, canvas.height);
 
     //ctx.drawImage(filteredData, 0, 0, canvas.width, canvas.height);
 
     //preview.appendChild(filteredData);
+=======
+>>>>>>> 6690556df418f1aa7f8f689431b3f21139e66331
 
-    //preview.appendChild(image);  (<업데이트할 데이터선택>,<데이터를 입력>)
+    // 작업 이미지 로컬 다운로드(.PNG)
+    $("#save").click(function(){
+        downloadCanvas(this, 'canvas', 'huWeb_img_colorization.png');
+    });
 
-    $("#btn-save-colorization").click(function(){ downloadCanvas(this, 'canvas', 'photo')});
     function downloadCanvas(link, canvasId, filename) {
         link.href = document.getElementById(canvasId).toDataURL();
         link.download = filename;
     }
-
-
-
 });

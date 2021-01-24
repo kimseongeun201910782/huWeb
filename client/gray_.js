@@ -1,8 +1,6 @@
 FlowRouter.template('/gray_', 'gray_');
 
 Template.gray_.onRendered(function() {
-    //preview.appendChild(image);
-
 
     // Filters
     function grayscaleFilter(pixels) {
@@ -31,35 +29,24 @@ Template.gray_.onRendered(function() {
         console.log(ctx.getImageData(0, 0, canvas.width, canvas.height));
     }
 
-
     var canvas = $('#canvas')[0];
     var ctx = canvas.getContext('2d');
 
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
     console.log(ctx.getImageData(0, 0, canvas.width, canvas.height));
 
-
-    //var file = image.target.files[0];
-    //var fileReader = new FileReader();
-
-
-    //fileReader.readAsDataURL(file);
-
     // imageData를 가져온다.
     var pixels = ctx.getImageData(0,0, canvas.width, canvas.height);
     // image processing
     var filteredData = grayscaleFilter(pixels);
     ctx.putImageData(filteredData, 0 , 0);
-    //ctx.drawImage(filteredData, 0, 0, canvas.width, canvas.height);
 
-    //preview.appendChild(filteredData);
 
-    //preview.appendChild(image);  (<업데이트할 데이터선택>,<데이터를 입력>)
-
+    // 작업 이미지 로컬 다운로드(.PNG)
     $("#save").click(function(){
         downloadCanvas(this, 'canvas', 'huWeb_img_gray.png');
     });
-    // 작업 이미지 로컬 다운로드(.PNG)
+
     function downloadCanvas(link, canvasId, filename) {
         link.href = document.getElementById(canvasId).toDataURL();
         link.download = filename;

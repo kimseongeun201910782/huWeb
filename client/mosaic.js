@@ -1,8 +1,6 @@
 FlowRouter.template('/mosaic', 'mosaic');
 
 Template.mosaic.onRendered(function() {
-    // tag_arr을 빈 String 으로 만들어주기
-    Session.set('tag_arr', []);
 
     var upload = document.querySelector('#inp-file');
     var upload2 = document.querySelector('#preview');
