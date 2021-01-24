@@ -83,9 +83,8 @@ Template.mosaic_.onRendered(function() {
     }
 
     let canvas = $('#canvas')[0];
-    //$("canvas").attr("width", image.width).attr("height", image.height);
-    let ctx = canvas.getContext('2d');
     $("canvas").attr("width", image.width).attr("height", image.height);
+    let ctx = canvas.getContext('2d');
 
     var scale1=Math.min((canvas.width/image.width),(canvas.height/image.height));
     var sw1=image.width*scale1;

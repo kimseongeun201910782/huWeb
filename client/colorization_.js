@@ -29,6 +29,7 @@ Template.colorization_.onRendered(function() {
 
     var canvas = $('#canvas')[0];
     var ctx = canvas.getContext('2d');
+    $("canvas").attr("width", image.width).attr("height", image.height);
 
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
     console.log(ctx.getImageData(0, 0, canvas.width, canvas.height));
