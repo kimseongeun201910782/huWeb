@@ -1,14 +1,19 @@
 <template name="gray_">
     {{> ex_navbar}}
     <div id="gray_">
-        <h1>흑백필터 처리된 이미지가 나타남</h1>
-        <div id = "c" style="width : 100%; align-content: center;">
-            <canvas id="canvas" style="width:400px; display:block; margin : auto"></canvas>
-        </div>
-        <p>
-            <a href="" id="save" class="btn btn-primary" download="my_painting.jpeg">다운로드</a>
-            <a href="/gray" class="btn btn-secondary">이전으로</a>
-        </p>
+        <section class="jumbotron text-center">
+            <h1>흑백필터 처리된 이미지</h1>
+            <div class="lead text-muted">이미지를 저장하거나, 이전으로 돌아가 처리했던 이미지들을 다시 볼 수 있습니다.</div>
+            <br><br>
+            <div id = "c" style="width : 100%; align-content: center;">
+                <canvas id="canvas" style="width:400px; display:block; margin : auto"></canvas>
+            </div>
+            <br><br>
+            <p>
+                <a id="save" href="#" class="btn btn-primary">저장하기</a>
+                <a href="/gray" class="btn btn-secondary">이전으로</a>
+            </p>
+        </section>
     </div>
 </template>
 

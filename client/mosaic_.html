@@ -1,13 +1,18 @@
-<template name="mosaic_">
+<template name="mosaic_" xmlns="http://www.w3.org/1999/html">
     {{> ex_navbar}}
     <div id="mosaic_">
-        <h1>모자이크 처리된 이미지가 나타남</h1>
-        <div id = "c" style=" align-content: center;">
-            <canvas id="canvas" style="width:400px; display:block; margin : auto"></canvas>
-        </div>
-        <p>
-            <a id="save" href="#" class="btn btn-primary">저장하기</a>
-            <a href="/mosaic" class="btn btn-secondary">이전으로</a>
-        </p>
+        <section class="jumbotron text-center">
+            <h1>모자이크 처리된 이미지</h1>
+            <div class="lead text-muted">이미지를 저장하거나, 이전으로 돌아가 처리했던 이미지들을 다시 볼 수 있습니다.</div>
+            <br><br>
+            <div id = "c" style=" align-content: center;">
+                <canvas id="canvas" style="width:400px; display:block; margin : auto"></canvas>
+            </div>
+            <br><br>
+            <p>
+              <a id="save" href="#" class="btn btn-primary">저장하기</a>
+              <a href="/mosaic" class="btn btn-secondary">이전으로</a>
+            </p>
+        </section>
     </div>
 </template>
