@@ -1,6 +1,6 @@
-FlowRouter.template('/colorization', 'colorization');
+FlowRouter.template('/bright', 'bright');
 
-Template.colorization.onRendered(function() {
+Template.bright.onRendered(function() {
 
     var upload = document.querySelector('#inp-file');
     var upload2 = document.querySelector('#preview');
@@ -32,10 +32,10 @@ Template.colorization.onRendered(function() {
     })
 });
 
-Template.colorization.helpers({
+Template.bright.helpers({
     contents: function() {
         // CONTENTS 데이터베이스를 화면에 전달
-        return DB_COLORIZATION.findAll();
+        return DB_BRIGHT.findAll();
     },
     createdAt: function() {
         // 화면에 보이는 날짜 데이터를 정해진 포맷으로 변환하여 전달
@@ -43,12 +43,12 @@ Template.colorization.helpers({
     },
     link: function() {
         // 저장 된 이미지 링크를 반환
-        return DB_FILES.findOne({_id: this.colorization_id}).link();
+        return DB_FILES.findOne({_id: this.bright_id}).link();
     }
 });
 
-Template.colorization.events({
-    'click #btn-colorization': function(evt, inst) {
+Template.bright.events({
+    'click #btn-bright': function(evt, inst) {
         var chk = document.getElementById('inp-file');
         if(!chk.value){
             $('#btn-colorization').attr('href','');
@@ -56,24 +56,22 @@ Template.colorization.events({
         }
         else {
             // 파일 먼저 저장
-            var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
-            var colorization_id = DB_FILES.insertFile(file);
+            var file = $('#inp-file').prop('files')[0];
+            var bright_id = DB_FILES.insertFile(file);
             // DB 저장 시 파일의 _id와 name을 함께 저장
-            DB_COLORIZATION.insert({    // 컨텐츠 DB에 저장
+            DB_BRIGHT.insert({    // 컨텐츠 DB에 저장
                 createdAt: new Date(),          // 저장 시각
                 content: $('#ta-article').val(),// 저장 컨텐츠
-                colorization_id: colorization_id                // 저장된 colorization 파일의 _id
+                bright_id: bright_id                // 저장된 bright 파일의 _id
             });
-            // 저장 후 화면 정리
             $('#inp-file').val('');
             $('#ta-article').val('');
-            $('#btn-colorization').attr('href','colorization_');
-            //alert('저장 되었습니다.');
+            $('#btn-bright').attr('href','bright_');
         }
     },
     'click #btn-remove': function() {
         if(confirm('삭제 하시겠습니까?')) {
-            DB_COLORIZATION.remove({_id: this._id});  // 선택 컨텐츠를 DB에서 삭제
+            DB_BRIGHT.remove({_id: this._id});  // 선택 컨텐츠를 DB에서 삭제
             alert('삭제 되었습니다.');
         }
     }

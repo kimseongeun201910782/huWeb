@@ -1,12 +1,15 @@
-FlowRouter.template('/colorization_', 'colorization_');
+FlowRouter.template('/bright_', 'bright_');
 
-Template.colorization_.onRendered(function() {// Filters
+Template.bright_.onRendered(function() {
+
+    // Filters
     function brightnessFilter(pixels, value) {
+        var num = prompt("밝기정도를 입력하세요. (※ 1.0에 가까울수록 밝아집니다.)","(1.0 ~ 4.0 사이값을 입력해주세요.)");
         var d = pixels.data;
         for(var i =0; i< d.length; i+=4){
-            d[i] += value/x;
-            d[i+1] += value/1.3;
-            d[i+2] += value/1.3;
+            d[i] += value/num;
+            d[i+1] += value/num;
+            d[i+2] += value/num;
         }
         return pixels;
     }
@@ -41,9 +44,17 @@ Template.colorization_.onRendered(function() {// Filters
 
 // Canvas에 다시 그린다.
     ctx.putImageData(filteredData, 0 , 0);
+
+
+    //ctx.drawImage(filteredData, 0, 0, canvas.width, canvas.height);
+
+    //ctx.drawImage(filteredData, 0, 0, canvas.width, canvas.height);
+
+    //preview.appendChild(filteredData);
+
     // 작업 이미지 로컬 다운로드(.PNG)
     $("#save").click(function(){
-        downloadCanvas(this, 'canvas', 'huWeb_img_colorization.png');
+        downloadCanvas(this, 'canvas', 'huWeb_img_bright.png');
     });
 
     function downloadCanvas(link, canvasId, filename) {

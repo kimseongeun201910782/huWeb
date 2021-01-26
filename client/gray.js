@@ -64,11 +64,9 @@ Template.gray.events({
                 content: $('#ta-article').val(),// 저장 컨텐츠
                 gray_id: gray_id                // 저장된 cartoonfilter 파일의 _id
             });
-            // 저장 후 화면 정리
             $('#inp-file').val('');
             $('#ta-article').val('');
             $('#btn-gray').attr('href','gray_');
-            //alert('저장 되었습니다.');
         }
     },
     'click #btn-remove': function() {

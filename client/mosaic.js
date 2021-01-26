@@ -64,11 +64,9 @@ Template.mosaic.events({
                 content: $('#ta-article').val(),// 저장 컨텐츠
                 mosaic_id: mosaic_id               // 저장된 mosaic 파일의 _id
             });
-            // 저장 후 화면 정리
             $('#inp-file').val('');
             $('#ta-article').val('');
             $('#btn-mosaic').attr('href','mosaic_');
-            //alert('저장 되었습니다.');
         }
     },
     'click #btn-remove': function() {
