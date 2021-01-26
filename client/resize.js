@@ -64,11 +64,9 @@ Template.resize.events({
                 content: $('#ta-article').val(),// 저장 컨텐츠
                 resize_id: resize_id                // 저장된 resize 파일의 _id
             });
-            // 저장 후 화면 정리
             $('#inp-file').val('');
             $('#ta-article').val('');
             $('#btn-resize').attr('href','resize_');
-            //alert('저장 되었습니다.');
         }
     },
     'click #btn-remove': function() {
