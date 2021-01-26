@@ -1,7 +1,8 @@
 FlowRouter.template('/resize_', 'resize_');
 
 Template.resize_.onRendered(function() {
-    var [a, b] = prompt("두 숫자를 입력하세요: ").split(" ")
+    var a = prompt("가로 길이를 입력하세요", "가로");
+    var b = prompt("세로 길이를 입력하세요", "세로");
     console.log(a,b);
 
     let canvas = $('#canvas')[0];
