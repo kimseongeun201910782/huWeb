@@ -4,10 +4,6 @@ Template.resize_.onRendered(function() {
     function ResizeImage(ctx, image) {
         var filesToUpload = document.getElementById('inp-file').files;
         var file = filesToUpload[0];
-
-<<<<<<< HEAD
-});
-=======
         var img = document.createElement("img");
 
         var reader = new FileReader();
@@ -19,8 +15,8 @@ Template.resize_.onRendered(function() {
 
             // 최대폭을 400 으로 정했다고 가정했을때
             // 최대폭을 넘어가는 경우 canvas 크기를 변경해 줍니다.
-            var MAX_WIDTH = 400;
-            var MAX_HEIGHT = 400;
+            var MAX_WIDTH = 100;
+            var MAX_HEIGHT = 100;
             var width = img.width;
             var height = img.height;
 
@@ -64,11 +60,5 @@ Template.resize_.onRendered(function() {
         link.href = document.getElementById(canvasId).toDataURL();
         link.download = filename;
     }
-<<<<<<< HEAD
-</script>
-*/
->>>>>>> e3efb85fd669abbe4964bfe081a2135ce88fb8a8
-=======
 });
 
->>>>>>> 6690556df418f1aa7f8f689431b3f21139e66331

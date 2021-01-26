@@ -1,12 +1,10 @@
 FlowRouter.template('/colorization_', 'colorization_');
 
-Template.colorization_.onRendered(function() {
-
-    // Filters
+Template.colorization_.onRendered(function() {// Filters
     function brightnessFilter(pixels, value) {
         var d = pixels.data;
         for(var i =0; i< d.length; i+=4){
-            d[i] += value/1.3;
+            d[i] += value/x;
             d[i+1] += value/1.3;
             d[i+2] += value/1.3;
         }
@@ -43,16 +41,6 @@ Template.colorization_.onRendered(function() {
 
 // Canvas에 다시 그린다.
     ctx.putImageData(filteredData, 0 , 0);
-
-<<<<<<< HEAD
-   //ctx.drawImage(filteredData, 0, 0, canvas.width, canvas.height);
-
-    //ctx.drawImage(filteredData, 0, 0, canvas.width, canvas.height);
-
-    //preview.appendChild(filteredData);
-=======
->>>>>>> 6690556df418f1aa7f8f689431b3f21139e66331
-
     // 작업 이미지 로컬 다운로드(.PNG)
     $("#save").click(function(){
         downloadCanvas(this, 'canvas', 'huWeb_img_colorization.png');
