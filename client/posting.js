@@ -1,80 +1,58 @@
 FlowRouter.template('/posting', 'posting');
 
 Template.posting.onRendered(function() {
-    $('#editor').summernote({
-        // popover: {},
-        minHeight: 200,
-        maximumImageFileSize: 1048576*10,
-        callbacks: {
-            onImageUpload : function(files) {
-                if (!files.length) return;
-                var file = files[0];
-                // create FileReader
-                var reader  = new FileReader();
-                reader.onloadend = function () {
-                    // when loaded file, img's src set datauri
-                    // console.log("img",$("<img>"));
-                    var img = $("<img>").attr({src: reader.result, width: "100%"}); // << Add here img attributes !
-                    // console.log("var img", img);
-                    $('#editor').summernote("insertNode", img[0]);
-                }
 
-                if (file) {
-                    // convert fileObject to datauri
-                    reader.readAsDataURL(file);
-                }
-            }
+    var upload = document.querySelector('#inp-file');
+    var upload2 = document.querySelector('#preview');
+
+    /* FileReader 객체 생성 */
+    var reader = new FileReader();
+
+    /* reader 시작시 함수 구현 */
+    reader.onload = (function () {
+        this.image = document.createElement('img');
+        var vm = this;
+        return function (e) {
+            /* base64 인코딩 된 스트링 데이터 */
+            vm.image.src = e.target.result
         }
+    })()
 
-    });
-});
-
-Template.posting.helpers({
-    post: function() {
-        var _id = FlowRouter.getParam('_id');
-        if(_id === 'newPosting') {
-            return {};    //새글 작성일때는 화면에 비어있는 데이터를 제공.
+    upload.addEventListener('change',function (e) {
+        var get_file = e.target.files;
+        if(get_file){
+            reader.readAsDataURL(get_file[0]);
         }
+        image.style.width = '400px';
+        image.style.height = 'auto';
+        image.style.display = 'block';
+        image.style.margin = 'auto';
 
-        Meteor.setTimeout(function() { //화면 에디터에 편집 모드를 초기화 하기 위한 트릭
-            $('#editor').summernote('reset')
-        });
-
-        return DB_POSTS.findOne({_id: _id});
-    }
+        preview.appendChild(image);
+    })
 });
 
 Template.posting.events({
-    'click #btn-save': function(evt, inst) {
-        evt.preventDefault();
-        var name = $('#inp-name').val();
-        var title = $('#inp-title').val();
-        var html = $('#editor').summernote('code');
-
-        if(!title) {
-            return alert('제목은 반드시 입력 해 주세요.');
+    'click #btn-posting': function(evt, inst,e) {
+        var chk = document.getElementById('inp-file');
+        if(!chk.value){
+            $('#btn-posting').attr('href','');
+            alert('이미지 파일을 먼저 업로드 해주세요.');
         }
-        var _id = FlowRouter.getParam('_id');
-        if( _id === 'newPosting') {
-            DB_POSTS.insert({
-                createdAt: new Date(),
-                name: name,
-                title: title,
-                content: html,
-                readCount: 0
-            })
-        } else {
-            var post = DB_POSTS.findOne({_id: _id});
-            post.name = name;
-            post.title = title;
-            post.content = html;
-            DB_POSTS.update({_id: _id}, post);
+        else {
+            // 파일 먼저 저장
+            var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
+            var post_id = DB_FILES.insertFile(file);
+            // DB 저장 시 파일의 _id와 name을 함께 저장
+            DB_POST.insert({    // 컨텐츠 DB에 저장
+                createdAt: new Date(),          // 저장 시각
+                content: $('#ta-article').val(),// 저장 컨텐츠
+                post_id: post_id               // 저장된 posting 파일의 _id
+            });
+            $('#inp-file').val('');
+            $('#ta-article').val('');
+            $('#btn-posting').attr('href','post');
+            alert('업로드 되었습니다.');
         }
-
-        alert('저장하였습니다.');
-        $('#inp-name').val('');
-        $('#inp-title').val('');
-        $('#editor').summernote('reset');
-        window.history.back();
-    },
-})
+    }
+});
