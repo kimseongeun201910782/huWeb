@@ -1,0 +1,2 @@
+
+FlowRouter.template('/post', 'post');
