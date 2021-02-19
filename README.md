@@ -154,7 +154,23 @@ meteor
 
 크기 변환 처리된 이미지가 나타남, 저장하기 버튼을 눌러 내 pc로 다운로드 가능
 
+![image](https://user-images.githubusercontent.com/60006301/108487763-f693f880-72e2-11eb-87c7-cad67d6a249d.png)
+
+<br>
 
 - gallery 메인 화면
+
+![image](https://user-images.githubusercontent.com/60006301/108488095-54284500-72e3-11eb-9e79-86ae05cbd29c.png)
+
+<br>
+
 - gallery에 올릴 이미지 업로드 화면
+
+![image](https://user-images.githubusercontent.com/60006301/108488233-7b7f1200-72e3-11eb-846d-98047f1392be.png)
+
+![image](https://user-images.githubusercontent.com/60006301/108488434-bc772680-72e3-11eb-8a8a-7e1fb77d7964.png)
+
+<br>
+
 - huWeb팀 소개 화면
+
