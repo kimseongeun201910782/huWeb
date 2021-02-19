@@ -68,11 +68,22 @@ meteor
 
 - 커버 화면
 
-![image](https://user-images.githubusercontent.com/60006301/108482972-820a8b00-72dd-11eb-8b58-026064b7a174.png)
+시작하기 버튼을 눌러 메인 화면으로 넘어감
 
+![image](https://user-images.githubusercontent.com/60006301/108483774-72d80d00-72de-11eb-823d-00da329f2483.png)
 
 - 메인 화면
+
+4가지 주요 기능 선택 가능
+
+![image](https://user-images.githubusercontent.com/60006301/108483502-28ef2700-72de-11eb-91be-12c54361f4e2.png)
+
 - 모자이크 적용할 이미지 업로드 화면
+
+내 pc에서 기능을 적용할 이미지를 업로드, 이미지와 함께 저장할 코멘트 입력
+
+![image](https://user-images.githubusercontent.com/60006301/108483595-40c6ab00-72de-11eb-8e12-f9fb486eaa6e.png)
+
 - 흑백 필터 적용할 이미지 업로드 화면
 - 밝기 조절 적용할 이미지 업로드 화면
 - 크기 변형 적용할 이미지 업로드 화면
