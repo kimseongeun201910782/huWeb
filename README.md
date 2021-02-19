@@ -68,7 +68,8 @@ meteor
 
 - 커버 화면
 
-![image](https://user-images.githubusercontent.com/60006301/108482841-55ef0a00-72dd-11eb-9d96-9b0bd7bbb7cb.png)
+![image](https://user-images.githubusercontent.com/60006301/108482972-820a8b00-72dd-11eb-8b58-026064b7a174.png)
+
 
 - 메인 화면
 - 모자이크 적용할 이미지 업로드 화면
