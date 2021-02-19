@@ -66,11 +66,15 @@ meteor
 
 **4. 웹사이트 실행 화면**
 
+<br>
+
 - 커버 화면
 
 시작하기 버튼을 눌러 메인 화면으로 넘어감
 
 ![image](https://user-images.githubusercontent.com/60006301/108483774-72d80d00-72de-11eb-823d-00da329f2483.png)
+
+<br>
 
 - 메인 화면
 
@@ -78,15 +82,79 @@ meteor
 
 ![image](https://user-images.githubusercontent.com/60006301/108483502-28ef2700-72de-11eb-91be-12c54361f4e2.png)
 
+<br>
+
 - 모자이크 적용할 이미지 업로드 화면
 
-내 pc에서 기능을 적용할 이미지를 업로드, 이미지와 함께 저장할 코멘트 입력
+내 pc에서 모자이 기능을 적용할 이미지를 업로드, 이미지와 함께 저장할 코멘트 입력
 
 ![image](https://user-images.githubusercontent.com/60006301/108483595-40c6ab00-72de-11eb-8e12-f9fb486eaa6e.png)
 
+![image](https://user-images.githubusercontent.com/60006301/108484742-7cae4000-72df-11eb-8c03-fe7d1ec1d446.png)
+
+<br>
+
+- 모자이크 처리된 이미지 도출 화면
+
+모자이크 처리된 이미지가 나타남, 저장하기 버튼을 눌러 내 pc로 다운로드 가능
+
+![image](https://user-images.githubusercontent.com/60006301/108484998-cb5bda00-72df-11eb-9320-a40981c34bd2.png)
+
+<br>
+
 - 흑백 필터 적용할 이미지 업로드 화면
+
+내 pc에서 흑백 필터 기능을 적용할 이미지를 업로드, 이미지와 함께 저장할 코멘트 입력
+
+![image](https://user-images.githubusercontent.com/60006301/108485683-8ab09080-72e0-11eb-9e67-603743deb6d6.png)
+
+![image](https://user-images.githubusercontent.com/60006301/108486169-1f1af300-72e1-11eb-92bd-c1caf237f8b9.png)
+
+<br>
+
+- 흑백 필터 처리된 이미지 도출 화면
+
+흑백 필터 처리된 이미지가 나타남, 저장하기 버튼을 눌러 내 pc로 다운로드 가능
+
+![image](https://user-images.githubusercontent.com/60006301/108485980-e4b15600-72e0-11eb-9457-36b57786fb78.png)
+
+<br>
+
 - 밝기 조절 적용할 이미지 업로드 화면
-- 크기 변형 적용할 이미지 업로드 화면
+
+내 pc에서 밝기 조절 기능을 적용할 이미지를 업로드, 이미지와 함께 저장할 코멘트 입력
+
+![image](https://user-images.githubusercontent.com/60006301/108486584-918bd300-72e1-11eb-88f6-d1adb4536b9c.png)
+
+![image](https://user-images.githubusercontent.com/60006301/108486568-8df84c00-72e1-11eb-99f4-fe17007764c3.png)
+
+<br>
+
+- 밝기 조절 처리된 이미지 도출 화면
+
+밝기 조절 처리된 이미지가 나타남, 저장하기 버튼을 눌러 내 pc로 다운로드 가능
+
+![image](https://user-images.githubusercontent.com/60006301/108486777-ce57ca00-72e1-11eb-88ce-24077363069d.png)
+
+<br>
+
+- 크기 변환 적용할 이미지 업로드 화면
+
+내 pc에서 크기 변환 기능을 적용할 이미지를 업로드, 이미지와 함께 저장할 코멘트 입력
+
+![image](https://user-images.githubusercontent.com/60006301/108487524-b6347a80-72e2-11eb-9bb9-3ee52577418f.png)
+
+![image](https://user-images.githubusercontent.com/60006301/108487556-bd5b8880-72e2-11eb-8268-92dec76d6c32.png)
+
+![image](https://user-images.githubusercontent.com/60006301/108487563-bfbde280-72e2-11eb-9607-1d60ab03fa6a.png)
+
+<br>
+
+- 크기 변환 처리된 이미지 도출 화면
+
+크기 변환 처리된 이미지가 나타남, 저장하기 버튼을 눌러 내 pc로 다운로드 가능
+
+
 - gallery 메인 화면
 - gallery에 올릴 이미지 업로드 화면
 - huWeb팀 소개 화면
